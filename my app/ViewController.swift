@@ -15,23 +15,20 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     let locationManager = CLLocationManager()
+    var selectedItem: String?
     
     var locations = [CLLocationCoordinate2D]()
     var geocoder = CLGeocoder()
     
+    var points = buildAnnotations()
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var unlockedImage: UIImageView!
-    
-    @IBOutlet weak var unlockButton: UIButton!
-    @IBAction func unlockButton(sender: UIButton){
-    
-    }
+    @IBOutlet weak var directionArrow: UIImageView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        unlockButton.hidden = true
         
         locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
@@ -40,43 +37,27 @@ class ViewController: UIViewController {
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.Follow, animated: true)
         mapView.delegate = self
+        
+        for point in points {
+            mapView.addAnnotation(point)
+            locationManager.startMonitoringForRegion(point.region)
+        }
+        
+        mapView.showAnnotations(points, animated: false)
 
         
-        //location of locks
-        
-        let zipLineLocation = CLLocationCoordinate2DMake(50.7162300, -1.8756500)
-        let dropPin = CustomPointAnnotation()
-        dropPin.coordinate = zipLineLocation
-        dropPin.title = "ZipLine"
-        mapView.addAnnotation(dropPin)
-        
-        let arcadeLocation = CLLocationCoordinate2DMake(50.716098, -1.875780)
-        let dropPinTwo = CustomPointAnnotation()
-        dropPinTwo.coordinate = arcadeLocation
-        dropPinTwo.title = "Arcade"
-        mapView.addAnnotation(dropPinTwo)
-
-        let beachLocation = CLLocationCoordinate2DMake(50.719914, -1.843552)
-        let dropPinThree = CustomPointAnnotation()
-        dropPinThree.unlock()
-        dropPinThree.coordinate = beachLocation
-        dropPinThree.title = "Beach"
-        mapView.addAnnotation(dropPinThree)
-        
-        
-        //region for each lock to be opened
-        
-        let zipLineRegion = CLCircularRegion(center: zipLineLocation, radius: 20, identifier: "ZipLine")
-        locationManager.startMonitoringForRegion(zipLineRegion)
-        
-        let arcadeRegion = CLCircularRegion(center: arcadeLocation, radius: 20, identifier: "Arcade")
-        locationManager.startMonitoringForRegion(arcadeRegion)
-        
-        let beachRegion = CLCircularRegion(center: beachLocation, radius: 20, identifier: "Beach")
-        locationManager.startMonitoringForRegion(beachRegion)
-
-
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "unlockButton" {
+            let vc = segue.destinationViewController as! DetailViewController
+            vc.name = selectedItem
+        }
+        
+      
+    }
+    
     
     @IBAction func mapSwitch(sender: UISegmentedControl) {
         
@@ -90,10 +71,31 @@ class ViewController: UIViewController {
         
     }
     
+    func refreshMap() {
+        
+        mapView.removeAnnotations(points)
+        
+        for point in points {
+            mapView.addAnnotation(point)
+        }
+    }
+    
     
 }
 
+
 extension ViewController: MKMapViewDelegate {
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        let cpa = view.annotation as! CustomPointAnnotation
+        selectedItem = cpa.name
+        
+        performSegueWithIdentifier("unlockButton", sender: self)
+
+        
+    }
+   
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -104,54 +106,67 @@ extension ViewController: MKMapViewDelegate {
         let reuseId = "Lock"
         
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        let cpa = annotation as! CustomPointAnnotation
+        
+        
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             anView!.canShowCallout = true
+            if !cpa.isLocked {
+        }
+            
+
         }
         else {
             anView!.annotation = annotation
         }
         
-        let cpa = annotation as! CustomPointAnnotation
-        anView!.image = UIImage(named:cpa.imageName)
-
+        if cpa.isLocked {
+            anView!.image = UIImage(named: "lock")
+        } else {
+            anView!.image = UIImage(named: "unlocked")
+            anView!.rightCalloutAccessoryView = UIButton(type: .InfoLight)
+        }
         
         return anView
         
     }
-    
 }
 
+//regions
+
 extension ViewController: CLLocationManagerDelegate {
-        
-
     
-        func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-            unlockButton.hidden = false
-            print(region.identifier)
-            
-            
-            
+    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        print(region.identifier)
+        
+        for point in points {
+            if point.name == region.identifier {
+                point.unlock()
+            }
         }
         
-        func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-            unlockButton.hidden = true
+        refreshMap()
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+        
+        for point in points {
+            if point.name == region.identifier {
+                point.lock()
+            }
         }
-
+        
+        refreshMap()
+        
+    }
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let newLocation = locations.last
-        
-        if let newLocation = newLocation {
-            
-            let testLocation = CLLocation(latitude: 0, longitude: 0)
-            //print(newLocation.distanceFromLocation(testLocation) / 1000)
-            
-        }
+        //let newLocation = locations.last
         
     }
-
+    
         
 }

@@ -31,46 +31,32 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="676"/>
                                 <animations/>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yxg-ey-P5H">
-                                <rect key="frame" x="180" y="295" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1x7-0u-CXu">
+                                <rect key="frame" x="20" y="452" width="240" height="128"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="c2u-L6-Qft"/>
+                                    <constraint firstAttribute="width" constant="240" id="0cn-Pz-f77"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2N-B4-u6a">
-                                <rect key="frame" x="247" y="509" width="106" height="71"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="SeZ-dt-hnM"/>
-                                </constraints>
-                                <state key="normal" title="Unlock!"/>
-                                <connections>
-                                    <action selector="unlockButton:" destination="pG1-ob-oZt" eventType="touchUpInside" id="Y4P-Bi-1qE"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="H2N-B4-u6a" firstAttribute="centerX" secondItem="yxg-ey-P5H" secondAttribute="centerX" id="3l8-eY-eDs"/>
-                            <constraint firstItem="S6s-xv-TnZ" firstAttribute="leading" secondItem="e0o-o2-1q7" secondAttribute="leading" id="47o-n3-kG3"/>
+                            <constraint firstItem="1x7-0u-CXu" firstAttribute="top" secondItem="ei7-3E-eJ6" secondAttribute="bottom" constant="388" id="3UP-8H-LbB"/>
                             <constraint firstItem="eJg-tg-GWv" firstAttribute="top" secondItem="FGq-1U-CSv" secondAttribute="bottom" constant="534" id="6HC-H8-yaG"/>
-                            <constraint firstAttribute="trailing" secondItem="S6s-xv-TnZ" secondAttribute="trailing" id="9AK-k0-Tws"/>
-                            <constraint firstItem="H2N-B4-u6a" firstAttribute="top" secondItem="yxg-ey-P5H" secondAttribute="bottom" constant="86" id="BVJ-nn-sVa"/>
-                            <constraint firstItem="S6s-xv-TnZ" firstAttribute="top" secondItem="e0o-o2-1q7" secondAttribute="top" id="ChM-u5-gI7"/>
-                            <constraint firstAttribute="bottom" secondItem="H2N-B4-u6a" secondAttribute="bottom" constant="20" symbolic="YES" id="E8Q-2C-Sud"/>
                             <constraint firstItem="Oid-of-9jz" firstAttribute="trailing" secondItem="e0o-o2-1q7" secondAttribute="trailingMargin" id="Fn7-yM-FSd"/>
-                            <constraint firstItem="eJg-tg-GWv" firstAttribute="top" secondItem="yxg-ey-P5H" secondAttribute="bottom" constant="177" id="Gwg-hI-Nh2"/>
                             <constraint firstItem="Oid-of-9jz" firstAttribute="baseline" secondItem="FGq-1U-CSv" secondAttribute="baseline" id="SMI-6V-IZV"/>
-                            <constraint firstItem="yxg-ey-P5H" firstAttribute="top" secondItem="ei7-3E-eJ6" secondAttribute="bottom" constant="231" id="afe-kx-Dyr"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="S6s-xv-TnZ" secondAttribute="bottom" constant="-76" id="bJD-cB-piu"/>
+                            <constraint firstItem="S6s-xv-TnZ" firstAttribute="top" secondItem="e0o-o2-1q7" secondAttribute="top" id="VUE-h5-EKj"/>
+                            <constraint firstItem="S6s-xv-TnZ" firstAttribute="leading" secondItem="e0o-o2-1q7" secondAttribute="leading" id="XoE-Ll-tW8"/>
+                            <constraint firstAttribute="bottom" secondItem="1x7-0u-CXu" secondAttribute="bottom" constant="20" symbolic="YES" id="akX-Q4-CJQ"/>
+                            <constraint firstItem="1x7-0u-CXu" firstAttribute="leading" secondItem="e0o-o2-1q7" secondAttribute="leadingMargin" id="d0G-2V-wtt"/>
                             <constraint firstItem="Oid-of-9jz" firstAttribute="leading" secondItem="FGq-1U-CSv" secondAttribute="trailing" constant="23" id="l0G-cS-Lhc"/>
-                            <constraint firstItem="yxg-ey-P5H" firstAttribute="centerX" secondItem="S6s-xv-TnZ" secondAttribute="centerX" id="xBf-DD-xOw"/>
+                            <constraint firstAttribute="trailing" secondItem="S6s-xv-TnZ" secondAttribute="trailing" id="qz6-Rf-HQd"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="S6s-xv-TnZ" secondAttribute="bottom" constant="-76" id="uQ9-g8-74D"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="L2R-fZ-hoS">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ipm-Ed-8gX">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="Ipm-Ed-8gX">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="jhW-LS-PkI">
                                 <rect key="frame" x="447" y="7" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,20 +72,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="directionArrow" destination="1x7-0u-CXu" id="N9s-h3-TAs"/>
                         <outlet property="mapView" destination="S6s-xv-TnZ" id="yvG-M1-UH4"/>
-                        <outlet property="unlockButton" destination="H2N-B4-u6a" id="wjc-0C-NLn"/>
-                        <outlet property="unlockedImage" destination="yxg-ey-P5H" id="dbo-nV-0re"/>
                         <segue destination="8hR-xn-pUX" kind="show" identifier="unlockButton" id="bLE-QH-UrQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgu-Io-l5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1643" y="286"/>
+            <point key="canvasLocation" x="1776" y="60"/>
         </scene>
-        <!--View Controller-->
+        <!--secondViewController-->
         <scene sceneID="Abu-lS-8iT">
             <objects>
-                <viewController id="8hR-xn-pUX" sceneMemberID="viewController">
+                <viewController title="secondViewController" id="8hR-xn-pUX" customClass="DetailViewController" customModule="my_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ar4-Fd-Dmn"/>
                         <viewControllerLayoutGuide type="bottom" id="2R0-HY-qxl"/>
@@ -113,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NhG-Sj-6L4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2388" y="278"/>
+            <point key="canvasLocation" x="2394" y="278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c7X-40-MsG">
