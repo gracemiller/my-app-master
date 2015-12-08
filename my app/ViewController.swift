@@ -24,7 +24,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var unlockedImage: UIImageView!
-    @IBOutlet weak var directionArrow: UIImageView!
+    @IBOutlet weak var arrow: UIImageView!
+
+
 
 
     override func viewDidLoad() {
@@ -95,6 +97,23 @@ extension ViewController: MKMapViewDelegate {
 
         
     }
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    
+    let pointToGo = CLLocationCoordinate2D(latitude: 50.713879, longitude: -1.874607)
+    let userLocation2d = CLLocationCoordinate2D(latitude: userLocation.location!.coordinate.latitude, longitude: userLocation.location!.coordinate.longitude)
+    
+    userLocation.title =  "\(Double(userLocation.location!.distanceFromLocation(CLLocation(latitude: 50.719799, longitude: -1.879439))).roundToPlaces(2)) Meters Away"
+    
+    mapView.selectAnnotation(userLocation, animated: true)
+    
+    UIView.animateWithDuration(0.5) { _ in
+    //print(getBearingBetweenTwoPoints(pointToGo, y: userLocation2d))
+    self.arrow.transform = CGAffineTransformMakeRotation(getBearingBetweenTwoPoints(pointToGo, y: userLocation2d))
+    }
+        
+    }
+
    
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -131,8 +150,8 @@ extension ViewController: MKMapViewDelegate {
         return anView
         
     }
-}
 
+}
 //regions
 
 extension ViewController: CLLocationManagerDelegate {
@@ -168,5 +187,4 @@ extension ViewController: CLLocationManagerDelegate {
         
     }
     
-        
 }

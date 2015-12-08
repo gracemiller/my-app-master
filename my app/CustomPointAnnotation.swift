@@ -6,7 +6,7 @@ class CustomPointAnnotation: MKPointAnnotation {
     var imageName = "lock"
     var isLocked = false
     var region: CLCircularRegion {
-        return CLCircularRegion(center: coordinate, radius: 20, identifier: name)
+        return CLCircularRegion(center: coordinate, radius: 10, identifier: name)
     }
     
     init(name: String) {
@@ -31,7 +31,7 @@ func buildAnnotations() -> [CustomPointAnnotation] {
     
     //location of locks
     
-    let zipLineLocation = CLLocationCoordinate2DMake(50.7150, -1.87470)
+    let zipLineLocation = CLLocationCoordinate2DMake(50.713879, -1.874607)
     let dropPin = CustomPointAnnotation(name: "ZipLine")
     dropPin.coordinate = zipLineLocation
     dropPin.title = "ZipLine"
@@ -43,7 +43,7 @@ func buildAnnotations() -> [CustomPointAnnotation] {
     dropPinTwo.title = "Arcade"
     points.append(dropPinTwo)
     
-    let beachLocation = CLLocationCoordinate2DMake(50.7148, -1.87463)
+    let beachLocation = CLLocationCoordinate2DMake(50.716252, -1.873429)
     let dropPinThree = CustomPointAnnotation(name: "Beach")
     dropPinThree.coordinate = beachLocation
     dropPinThree.title = "Beach"
