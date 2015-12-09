@@ -92,13 +92,78 @@
                     <view key="view" contentMode="scaleToFill" id="qDf-W3-X2g">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="Du4-F6-MyD">
+                                <rect key="frame" x="0.0" y="52" width="600" height="720"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="720" id="TMT-2S-d9q"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach" translatesAutoresizingMaskIntoConstraints="NO" id="FHV-hy-QiG">
+                                <rect key="frame" x="79" y="154" width="480" height="233"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="233" id="oF2-22-E1R"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tyf-I1-Ctf">
+                                <rect key="frame" x="79" y="395" width="480" height="164"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FHV-hy-QiG" firstAttribute="top" secondItem="ar4-Fd-Dmn" secondAttribute="bottom" constant="90" id="1Sh-6V-EKc"/>
+                            <constraint firstItem="Tyf-I1-Ctf" firstAttribute="trailing" secondItem="FHV-hy-QiG" secondAttribute="trailing" id="57Q-iR-8KC"/>
+                            <constraint firstItem="Du4-F6-MyD" firstAttribute="top" secondItem="qDf-W3-X2g" secondAttribute="topMargin" constant="52" id="86f-gx-uU5"/>
+                            <constraint firstItem="Du4-F6-MyD" firstAttribute="leading" secondItem="qDf-W3-X2g" secondAttribute="leading" id="9Dj-tP-2LB"/>
+                            <constraint firstItem="FHV-hy-QiG" firstAttribute="leading" secondItem="qDf-W3-X2g" secondAttribute="leadingMargin" constant="59" id="NVb-0B-LFU"/>
+                            <constraint firstAttribute="trailing" secondItem="Du4-F6-MyD" secondAttribute="trailing" id="kFq-O4-mPR"/>
+                            <constraint firstItem="Tyf-I1-Ctf" firstAttribute="leading" secondItem="FHV-hy-QiG" secondAttribute="leading" id="mAU-yz-MKs"/>
+                            <constraint firstItem="2R0-HY-qxl" firstAttribute="top" secondItem="Tyf-I1-Ctf" secondAttribute="bottom" constant="41" id="maU-1E-tur"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FHV-hy-QiG" secondAttribute="trailing" constant="21" id="raF-16-Bit"/>
+                            <constraint firstItem="Tyf-I1-Ctf" firstAttribute="top" secondItem="FHV-hy-QiG" secondAttribute="bottom" constant="8" symbolic="YES" id="wJV-lh-9Ss"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NhG-Sj-6L4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2394" y="278"/>
+            <point key="canvasLocation" x="2556" y="-100"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yi5-Hd-6W1">
+            <objects>
+                <viewController id="vi2-Mf-pVF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3e4-qG-itv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nug-3v-kk1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e6y-bj-RoU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dates" translatesAutoresizingMaskIntoConstraints="NO" id="n8H-LQ-VEd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RTN-SL-cBd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </scrollView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gid-NF-I7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2571" y="647"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c7X-40-MsG">
@@ -122,5 +187,8 @@
     </scenes>
     <resources>
         <image name="arrow" width="96" height="88"/>
+        <image name="beach" width="4288" height="2848"/>
+        <image name="dates" width="650" height="1138"/>
+        <image name="info" width="1333" height="2366"/>
     </resources>
 </document>
