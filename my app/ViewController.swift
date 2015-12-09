@@ -47,7 +47,6 @@ class ViewController: UIViewController {
         
         mapView.showAnnotations(points, animated: false)
 
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,7 +56,6 @@ class ViewController: UIViewController {
             vc.name = selectedItem
         }
         
-      
     }
     
     
@@ -99,18 +97,16 @@ extension ViewController: MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-    
-    let pointToGo = CLLocationCoordinate2D(latitude: 50.713879, longitude: -1.874607)
-    let userLocation2d = CLLocationCoordinate2D(latitude: userLocation.location!.coordinate.latitude, longitude: userLocation.location!.coordinate.longitude)
-    
-    userLocation.title =  "\(Double(userLocation.location!.distanceFromLocation(CLLocation(latitude: 50.719799, longitude: -1.879439))).roundToPlaces(2)) Meters Away"
-    
-    mapView.selectAnnotation(userLocation, animated: true)
-    
-    UIView.animateWithDuration(0.5) { _ in
-    //print(getBearingBetweenTwoPoints(pointToGo, y: userLocation2d))
-    self.arrow.transform = CGAffineTransformMakeRotation(getBearingBetweenTwoPoints(pointToGo, y: userLocation2d))
-    }
+        
+        let pointToGo = CLLocationCoordinate2D(latitude: 50.713879, longitude: -1.874607)
+        let userLocation2d = CLLocationCoordinate2D(latitude: userLocation.location!.coordinate.latitude, longitude: userLocation.location!.coordinate.longitude)
+        
+        userLocation.title =  "\(Double(userLocation.location!.distanceFromLocation(CLLocation(latitude: 50.719799, longitude: -1.879439))).roundToPlaces(2)) Meters Away"
+        
+        UIView.animateWithDuration(0.5) { _ in
+            
+            self.arrow.transform = CGAffineTransformMakeRotation(getBearingBetweenTwoPoints(userLocation2d, y: pointToGo))
+        }
         
     }
 
@@ -131,12 +127,7 @@ extension ViewController: MKMapViewDelegate {
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             anView!.canShowCallout = true
-            if !cpa.isLocked {
-        }
-            
-
-        }
-        else {
+        }else {
             anView!.annotation = annotation
         }
         
@@ -152,12 +143,12 @@ extension ViewController: MKMapViewDelegate {
     }
 
 }
-//regions
+
 
 extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print(region.identifier)
+        print("Entering \(region.identifier)")
         
         for point in points {
             if point.name == region.identifier {
@@ -170,7 +161,7 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-        
+        print("Leaving \(region.identifier)")
         for point in points {
             if point.name == region.identifier {
                 point.lock()

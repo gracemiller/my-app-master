@@ -3,17 +3,22 @@
     
     <wpt lat="50.716252" lon="-1.873429">
         <name>Beach</name>
-        <time>2014-09-24T14:55:30Z</time>
+        <time>2014-09-24T14:55:20Z</time>
     </wpt>
     
     <wpt lat="50.713879" lon="-1.874607">
         <name>Zip Line</name>
-        <time>2014-09-24T14:55:36Z</time>
+        <time>2014-09-24T14:55:28Z</time>
     </wpt>
     
     <wpt lat="50.7161" lon="-1.875780">
         <name>Arcade</name>
-        <time>2014-09-24T14:55:42Z</time>
+        <time>2014-09-24T14:55:36Z</time>
+    </wpt>
+    
+    <wpt lat="50.716252" lon="-1.873429">
+        <name>Beach</name>
+        <time>2014-09-24T14:55:44Z</time>
     </wpt>
     
 </gpx>

@@ -27,7 +27,7 @@ func getBearingBetweenTwoPoints(x: CLLocationCoordinate2D, y: CLLocationCoordina
         radiansBearing += CGFloat(2 * M_PI)
     }
     
-    return radiansToDegrees(Double(radiansBearing))
+    return radiansBearing
 }
 
 
