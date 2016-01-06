@@ -15,7 +15,8 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     let locationManager = CLLocationManager()
-    var selectedItem: String?
+    
+    var selectedItem: CustomPointAnnotation?
     
     var locations = [CLLocationCoordinate2D]()
     var geocoder = CLGeocoder()
@@ -25,8 +26,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var unlockedImage: UIImageView!
     @IBOutlet weak var arrow: UIImageView!
-
-
 
 
     override func viewDidLoad() {
@@ -53,7 +52,7 @@ class ViewController: UIViewController {
         
         if segue.identifier == "unlockButton" {
             let vc = segue.destinationViewController as! DetailViewController
-            vc.name = selectedItem
+            vc.place = selectedItem
         }
         
     }
@@ -89,11 +88,10 @@ extension ViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         let cpa = view.annotation as! CustomPointAnnotation
-        selectedItem = cpa.name
+        selectedItem = cpa
         
         performSegueWithIdentifier("unlockButton", sender: self)
 
-        
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
