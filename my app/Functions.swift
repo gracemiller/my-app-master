@@ -37,3 +37,9 @@ extension Double {
         return round(self * divisor) / divisor
     }
 }
+
+extension UIColor {
+    class func rgba(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) -> UIColor {
+        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: a)
+    }
+}

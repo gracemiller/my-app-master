@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "unlockButton" {
-            let vc = segue.destinationViewController as! DetailViewController
+            let vc = segue.destinationViewController as! TableViewController
             vc.place = selectedItem
         }
         

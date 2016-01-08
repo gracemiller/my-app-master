@@ -17,6 +17,7 @@
 		3F4AB3741C17483C0075722F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB3731C17483C0075722F /* DetailViewController.swift */; };
 		3F4AB3761C175F630075722F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB3751C175F630075722F /* Functions.swift */; };
 		3F6796F81C0C5877004A01FB /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6796F71C0C5877004A01FB /* CustomPointAnnotation.swift */; };
+		3F95C4071C3EC25300274671 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F95C4061C3EC25300274671 /* TableViewController.swift */; };
 		CD8DF53AE2301DD38F6EC167 /* Pods_my_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1270F54803A00C3F64370D9B /* Pods_my_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		3F4AB3751C175F630075722F /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		3F6796F61C08A0BD004A01FB /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		3F6796F71C0C5877004A01FB /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
+		3F95C4061C3EC25300274671 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9B56D548269141FD86EF879B /* Pods-my app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my app.release.xcconfig"; path = "Pods/Target Support Files/Pods-my app/Pods-my app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,9 +113,10 @@
 		2127DD7F1C03193B0085E70B /* my app */ = {
 			isa = PBXGroup;
 			children = (
+				3F4AB3751C175F630075722F /* Functions.swift */,
 				2127DD801C03193B0085E70B /* AppDelegate.swift */,
 				2127DD821C03193B0085E70B /* ViewController.swift */,
-				3F4AB3751C175F630075722F /* Functions.swift */,
+				3F95C4061C3EC25300274671 /* TableViewController.swift */,
 				3F4AB3731C17483C0075722F /* DetailViewController.swift */,
 				3F6796F71C0C5877004A01FB /* CustomPointAnnotation.swift */,
 				2127DD841C03193B0085E70B /* Main.storyboard */,
@@ -230,6 +233,7 @@
 				TargetAttributes = {
 					2127DD7C1C03193B0085E70B = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 52293P72D7;
 					};
 					2127DD901C03193C0085E70B = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -342,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F4AB3761C175F630075722F /* Functions.swift in Sources */,
+				3F95C4071C3EC25300274671 /* TableViewController.swift in Sources */,
 				3F4AB3741C17483C0075722F /* DetailViewController.swift in Sources */,
 				2127DD831C03193B0085E70B /* ViewController.swift in Sources */,
 				3F6796F81C0C5877004A01FB /* CustomPointAnnotation.swift in Sources */,
@@ -487,10 +492,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 06E80B0C81594202E9F1715E /* Pods-my app.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "my app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gracemiller.my-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -498,10 +506,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9B56D548269141FD86EF879B /* Pods-my app.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "my app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gracemiller.my-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

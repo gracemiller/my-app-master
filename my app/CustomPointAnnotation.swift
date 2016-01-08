@@ -7,8 +7,9 @@ class CustomPointAnnotation: MKPointAnnotation {
     var desc: String?
     var isLocked = true
     var region: CLCircularRegion {
-        return CLCircularRegion(center: coordinate, radius: 5, identifier: name)
+        return CLCircularRegion(center: coordinate, radius: 3, identifier: name)
     }
+    var people = ["Jon", "Kyle", "Grace", "Luke", "Sara"]
     
     init(name: String) {
         self.name = name
