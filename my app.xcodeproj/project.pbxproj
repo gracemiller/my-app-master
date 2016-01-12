@@ -91,7 +91,7 @@
 		2127DD741C03193B0085E70B = {
 			isa = PBXGroup;
 			children = (
-				2127DD7F1C03193B0085E70B /* my app */,
+				2127DD7F1C03193B0085E70B /* Time Capsule */,
 				2127DD941C03193C0085E70B /* my appTests */,
 				2127DD9F1C03193C0085E70B /* my appUITests */,
 				2127DD7E1C03193B0085E70B /* Products */,
@@ -110,7 +110,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2127DD7F1C03193B0085E70B /* my app */ = {
+		2127DD7F1C03193B0085E70B /* Time Capsule */ = {
 			isa = PBXGroup;
 			children = (
 				3F4AB3751C175F630075722F /* Functions.swift */,
@@ -125,6 +125,7 @@
 				2127DD891C03193B0085E70B /* LaunchScreen.storyboard */,
 				2127DD8C1C03193B0085E70B /* Info.plist */,
 			);
+			name = "Time Capsule";
 			path = "my app";
 			sourceTree = "<group>";
 		};
@@ -233,7 +234,7 @@
 				TargetAttributes = {
 					2127DD7C1C03193B0085E70B = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 52293P72D7;
+						DevelopmentTeam = PB5S47GH58;
 					};
 					2127DD901C03193C0085E70B = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -492,9 +493,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 06E80B0C81594202E9F1715E /* Pods-my app.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "my app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gracemiller.my-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -506,9 +510,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9B56D548269141FD86EF879B /* Pods-my app.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "my app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gracemiller.my-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";

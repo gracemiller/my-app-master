@@ -4,7 +4,10 @@ use_frameworks!
 
 target 'my app' do
     pod 'Alamofire'
-    pod 'SwiftyJSON' 
+    pod 'SwiftyJSON'
+    pod 'Gifu'
+ 
+
 end
 
 target 'my appTests' do

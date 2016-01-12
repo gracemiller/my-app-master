@@ -8,6 +8,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descTextField: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,10 @@ class DetailViewController: UIViewController {
         descTextField.text = place.desc
         imageView.image = UIImage(named: place.name)
         backgroundImageView.image = UIImage(named: "\(place.name)-background")
+        nameLabel.text = person
 
     }
     
     
 }
+

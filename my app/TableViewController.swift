@@ -5,14 +5,17 @@ class TableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var place: CustomPointAnnotation!
+    var name: String!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = place.name
         tableView.backgroundColor = UIColor.clearColor()
         let bgImageView = UIImageView(frame: tableView.frame)
         bgImageView.image = UIImage(named: place.name + "-background")
         tableView.backgroundView = bgImageView
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -61,3 +64,4 @@ extension TableViewController: UITableViewDelegate {
     }
     
 }
+

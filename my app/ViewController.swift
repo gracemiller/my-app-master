@@ -11,20 +11,25 @@ import CoreLocation
 import MapKit
 import Alamofire
 import SwiftyJSON
+//import Gifu
+
 
 class ViewController: UIViewController {
     
     let locationManager = CLLocationManager()
+    var selectedPoint: CLLocationCoordinate2D?
+    
+    /*
+    let imageView = AnimatableImageView
+    imageView.animateWithImage(named: "launch.gif")
+    */
     
     var selectedItem: CustomPointAnnotation?
-    
     var locations = [CLLocationCoordinate2D]()
     var geocoder = CLGeocoder()
-    
     var points = buildAnnotations()
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var unlockedImage: UIImageView!
     @IBOutlet weak var arrow: UIImageView!
 
 
@@ -33,10 +38,7 @@ class ViewController: UIViewController {
         
         locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
-        locationManager.startUpdatingLocation()
-        
-        mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.Follow, animated: true)
+
         mapView.delegate = self
         
         for point in points {
@@ -45,7 +47,7 @@ class ViewController: UIViewController {
         }
         
         mapView.showAnnotations(points, animated: false)
-
+        arrow.alpha = 0
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -59,6 +61,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func mapSwitch(sender: UISegmentedControl) {
+        
         
         if sender.selectedSegmentIndex == 0 {
             mapView.mapType = .Standard
@@ -77,6 +80,8 @@ class ViewController: UIViewController {
         for point in points {
             mapView.addAnnotation(point)
         }
+        
+        mapView.setUserTrackingMode(.Follow, animated: true)
     }
     
     
@@ -94,17 +99,27 @@ extension ViewController: MKMapViewDelegate {
 
     }
     
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        selectedPoint = view.annotation?.coordinate
+    }
+    
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         
-        let pointToGo = CLLocationCoordinate2D(latitude: 50.713879, longitude: -1.874607)
-        let userLocation2d = CLLocationCoordinate2D(latitude: userLocation.location!.coordinate.latitude, longitude: userLocation.location!.coordinate.longitude)
-        
-        userLocation.title =  "\(Double(userLocation.location!.distanceFromLocation(CLLocation(latitude: 50.719799, longitude: -1.879439))).roundToPlaces(2)) Meters Away"
-        
-        UIView.animateWithDuration(0.5) { _ in
+        if let selectedPoint = selectedPoint {
+            let pointToGo = selectedPoint
+            let userLocation2d = CLLocationCoordinate2D(latitude: userLocation.location!.coordinate.latitude, longitude: userLocation.location!.coordinate.longitude)
             
-            self.arrow.transform = CGAffineTransformMakeRotation(getBearingBetweenTwoPoints(userLocation2d, y: pointToGo))
+            userLocation.title =  "\(Double(userLocation.location!.distanceFromLocation(CLLocation(latitude: 50.719799, longitude: -1.879439))).roundToPlaces(2)) Meters Away"
+            
+            UIView.animateWithDuration(0.5) { _ in
+                self.arrow.alpha = 1
+                self.arrow.transform = CGAffineTransformMakeRotation(getBearingBetweenTwoPoints(userLocation2d, y: pointToGo))
+            }
+        } else {
+            
         }
+        
+        
         
     }
 
@@ -167,12 +182,6 @@ extension ViewController: CLLocationManagerDelegate {
         }
         
         refreshMap()
-        
-    }
-    
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //let newLocation = locations.last
         
     }
     

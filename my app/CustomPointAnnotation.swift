@@ -9,7 +9,7 @@ class CustomPointAnnotation: MKPointAnnotation {
     var region: CLCircularRegion {
         return CLCircularRegion(center: coordinate, radius: 3, identifier: name)
     }
-    var people = ["Jon", "Kyle", "Grace", "Luke", "Sara"]
+    var people = ["Brenda", "Jamie", "Ellen", "Luke", "Sara"]
     
     init(name: String) {
         self.name = name
@@ -37,14 +37,14 @@ func buildAnnotations() -> [CustomPointAnnotation] {
     let dropPin = CustomPointAnnotation(name: "Balloon")
     dropPin.coordinate = balloonLocation
     dropPin.title = "Balloon"
-    dropPin.desc = "BALLOON asdasdkhj idsfb sdhfb isdbfiu sdfgisld Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.f"
+    dropPin.desc = "The sun came out from behind the clouds this afternoon so decided to take Rusty for a stroll to our favourite bench in the gardens. Sat for a while to enjoy the Autumn warmth and watch the world go by. He was content to sit by my side. He’d have been up chasing those scurrying squirrels when he was a puppy!  Think I will treat myself to an ice-cream from Guiseppe’s on the way home.   Brenda"
     points.append(dropPin)
     
     let arcadeLocation = CLLocationCoordinate2DMake(50.7161, -1.875780)
     let dropPinTwo = CustomPointAnnotation(name: "Arcade")
     dropPinTwo.coordinate = arcadeLocation
     dropPinTwo.title = "Arcade"
-    dropPinTwo.desc = "ARCADE asdasdkhj idsfb sdhfb isdbfiu sdfgisld Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.f"
+    dropPinTwo.desc = "Jamie here at the Arcade again.  Managed to persuade mum to give me her small change so rematch with Sam and Zack – air hockey wars.  And I’m on for victory again!  Chucking it down outside but such a laugh in here.  50 tokens already – might get some candyfloss this week. Will cycle back along the promenade by the beach - no traffic that way."
     points.append(dropPinTwo)
     
 
@@ -52,7 +52,7 @@ func buildAnnotations() -> [CustomPointAnnotation] {
     let dropPinThree = CustomPointAnnotation(name: "Beach")
     dropPinThree.coordinate = beachLocation
     dropPinThree.title = "Beach"
-    dropPinThree.desc = "BEACH bfiu sdfgisld Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.f"
+    dropPinThree.desc = "Hi I’m Ellen  My first visit to Bournemouth to see my boyfriend.  He’s just started uni here.  Been missing him!  Such a great beach!  Sunny day, even been paddling.  Lots of people, it’s buzzing. Never realised Bournemouth had so much going on!  Fish and chips from Harry Ramsden's was great! Xx"
     points.append(dropPinThree)
 
     
